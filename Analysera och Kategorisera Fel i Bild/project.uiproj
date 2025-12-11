@@ -1,0 +1,6 @@
+{
+  "Name": "Analysera och Kategorisera Fel i Bild",
+  "ProjectType": "Process",
+  "Description": "Initialt workflow som analyserar en bild och kategoriserar möjliga fel, risker, skador etc.",
+  "MainFile": "Main.xaml"
+}
