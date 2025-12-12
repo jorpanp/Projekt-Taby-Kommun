@@ -1,4 +1,13 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:a="clr-namespace:Analysera_och_Kategorisera_Fel_i_Bild;assembly=DataService.Analysera_och_Kategorisera_Fel_i_Bild" xmlns:isactr="http://schemas.uipath.com/workflow/integration-service-activities/isactr" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ucas="clr-namespace:UiPath.Core.Activities.Storage;assembly=UiPath.System.Activities" xmlns:uda="clr-namespace:UiPath.DataService.Activities;assembly=UiPath.DataService.Activities.Core" xmlns:udam="clr-namespace:UiPath.DataService.Activities.Models;assembly=UiPath.DataService.Activities.Core" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uiascb="clr-namespace:UiPath.IntegrationService.Activities.SWEntities.C2B516D245C_v1_sub_chat_sub_completion_Create.Bundle;assembly=C2B516D245C_v1_sub_c.m3PiZ1nOBRJ1boM0b3wBQdR2" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="IssuesFound" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="Findings" Type="OutArgument(x:String)" />
+    <x:Property Name="Type" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -25,6 +34,99 @@
       <x:String>System.Windows.Markup</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Core.Activities.Storage</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>Microsoft.Win32.SafeHandles</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>System.Configuration.Assemblies</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.CodeDom.Compiler</x:String>
+      <x:String>System.Buffers</x:String>
+      <x:String>System.Buffers.Text</x:String>
+      <x:String>System.Buffers.Binary</x:String>
+      <x:String>System.Threading</x:String>
+      <x:String>System.Threading.Tasks</x:String>
+      <x:String>System.Threading.Tasks.Sources</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Text.Unicode</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Security.Principal</x:String>
+      <x:String>System.Security.Permissions</x:String>
+      <x:String>System.Security.Cryptography</x:String>
+      <x:String>System.Runtime</x:String>
+      <x:String>System.Runtime.Remoting</x:String>
+      <x:String>System.Runtime.ExceptionServices</x:String>
+      <x:String>System.Runtime.ConstrainedExecution</x:String>
+      <x:String>System.Runtime.Versioning</x:String>
+      <x:String>System.Runtime.Loader</x:String>
+      <x:String>System.Runtime.Intrinsics</x:String>
+      <x:String>System.Runtime.Intrinsics.Wasm</x:String>
+      <x:String>System.Runtime.Intrinsics.Arm</x:String>
+      <x:String>System.Runtime.Intrinsics.X86</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.InteropServices.ObjectiveC</x:String>
+      <x:String>System.Runtime.InteropServices.Marshalling</x:String>
+      <x:String>System.Runtime.InteropServices.ComTypes</x:String>
+      <x:String>System.Runtime.CompilerServices</x:String>
+      <x:String>System.Resources</x:String>
+      <x:String>System.Reflection.Metadata</x:String>
+      <x:String>System.Reflection.Emit</x:String>
+      <x:String>System.IO.Enumeration</x:String>
+      <x:String>System.Diagnostics.SymbolStore</x:String>
+      <x:String>System.Diagnostics.Contracts</x:String>
+      <x:String>System.Diagnostics.CodeAnalysis</x:String>
+      <x:String>System.Diagnostics.Tracing</x:String>
+      <x:String>System.Collections.Concurrent</x:String>
+      <x:String>Internal</x:String>
+      <x:String>System.CodeDom</x:String>
+      <x:String>Microsoft.CSharp</x:String>
+      <x:String>System.Linq.Expressions.Interpreter</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.ComponentModel.Design.Serialization</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Security.Authentication.ExtendedProtection</x:String>
+      <x:String>System.Timers</x:String>
+      <x:String>System.ComponentModel.Design</x:String>
+      <x:String>System.Xml.Schema</x:String>
+      <x:String>System.Xml.Xsl</x:String>
+      <x:String>System.Xml.Xsl.Runtime</x:String>
+      <x:String>System.Xml.XPath</x:String>
+      <x:String>System.Xml.Resolvers</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>Microsoft.CodeAnalysis</x:String>
+      <x:String>Microsoft.CodeAnalysis.VisualBasic</x:String>
+      <x:String>Microsoft.CodeAnalysis.VisualBasic.Syntax</x:String>
+      <x:String>Microsoft.VisualBasic.FileIO</x:String>
+      <x:String>System.Security.Authentication</x:String>
+      <x:String>System.Net.Cache</x:String>
+      <x:String>System.Net.NetworkInformation</x:String>
+      <x:String>System.Net.Security</x:String>
+      <x:String>System.Net.Sockets</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models.FilterBuilder</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Helpers.TypeDetailsCustomization</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Activities</x:String>
+      <x:String>UiPath.Platform.Activities</x:String>
+      <x:String>UiPath.IntegrationService.Activities.SWEntities.C2525F9A371_v1_sub_chat_sub_completion_Create.Bundle</x:String>
+      <x:String>UiPath.IntegrationService.Activities.SWEntities.C2B516D245C_v1_sub_chat_sub_completion_Create.Bundle</x:String>
+      <x:String>UiPath.Platform</x:String>
+      <x:String>UiPath.Web.Activities.JSON.Models</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.DataService.Activities</x:String>
+      <x:String>UiPath.DataService.Definition</x:String>
+      <x:String>UiPath.DataService.Activities.Models</x:String>
+      <x:String>Analysera_och_Kategorisera_Fel_i_Bild</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -53,13 +155,320 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Security.Cryptography</AssemblyReference>
+      <AssemblyReference>System.Security.Principal.Windows</AssemblyReference>
+      <AssemblyReference>System.Diagnostics.Process</AssemblyReference>
+      <AssemblyReference>System.IO.MemoryMappedFiles</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Registry</AssemblyReference>
+      <AssemblyReference>System.IO.Pipes</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Net.Primitives</AssemblyReference>
+      <AssemblyReference>System.Net.HttpListener</AssemblyReference>
+      <AssemblyReference>System.Net.WebProxy</AssemblyReference>
+      <AssemblyReference>System.Net.NameResolution</AssemblyReference>
+      <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
+      <AssemblyReference>System.Net.WebClient</AssemblyReference>
+      <AssemblyReference>System.Net.Requests</AssemblyReference>
+      <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>System.Threading.AccessControl</AssemblyReference>
+      <AssemblyReference>System.Threading</AssemblyReference>
+      <AssemblyReference>System.Threading.Tasks.Parallel</AssemblyReference>
+      <AssemblyReference>System.Text.Encoding.CodePages</AssemblyReference>
+      <AssemblyReference>System.Text.Encodings.Web</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Security.Claims</AssemblyReference>
+      <AssemblyReference>System.Security.Cryptography.Pkcs</AssemblyReference>
+      <AssemblyReference>System.Security.Cryptography.ProtectedData</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.CompilerServices.VisualC</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Resources.Writer</AssemblyReference>
+      <AssemblyReference>System.Reflection.MetadataLoadContext</AssemblyReference>
+      <AssemblyReference>Microsoft.PowerShell.Commands.Diagnostics</AssemblyReference>
+      <AssemblyReference>System.Diagnostics.FileVersionInfo</AssemblyReference>
+      <AssemblyReference>System.Diagnostics.DiagnosticSource</AssemblyReference>
+      <AssemblyReference>System.Diagnostics.TraceSource</AssemblyReference>
+      <AssemblyReference>System.Diagnostics.EventLog</AssemblyReference>
+      <AssemblyReference>System.Diagnostics.PerformanceCounter</AssemblyReference>
+      <AssemblyReference>System.Diagnostics.TextWriterTraceListener</AssemblyReference>
+      <AssemblyReference>System.Diagnostics.StackTrace</AssemblyReference>
+      <AssemblyReference>System.Collections.Concurrent</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Net.Security</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Private.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xml.XPath.XDocument</AssemblyReference>
+      <AssemblyReference>Microsoft.CodeAnalysis.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Net.NetworkInformation</AssemblyReference>
+      <AssemblyReference>System.Net.Ping</AssemblyReference>
+      <AssemblyReference>System.Net.Sockets</AssemblyReference>
+      <AssemblyReference>UiPath.IntegrationService.Activities.Runtime</AssemblyReference>
+      <AssemblyReference>C2525F9A371_v1_sub_c.SfK5m2U0qpI1Oe3873897v63</AssemblyReference>
+      <AssemblyReference>C2B516D245C_v1_sub_c.m3PiZ1nOBRJ1boM0b3wBQdR2</AssemblyReference>
+      <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Activities.Core</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Definition</AssemblyReference>
+      <AssemblyReference>DataService.Analysera_och_Kategorisera_Fel_i_Bild</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Workflow som Analyserar bild och kategorizerar brister, fel, skador." DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1657,2229" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:CurrentJobInfo" Name="InfoNuvarandeJobb" />
+      <Variable x:TypeArguments="upr:ILocalResource" Name="NedladdadFil" />
+      <Variable x:TypeArguments="upr:ILocalResource" Name="bild" />
+      <Variable x:TypeArguments="x:String" Name="ResultJSONString" />
+      <Variable x:TypeArguments="njl:JObject" Name="JsonObject" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ucas:DownloadStorageFile Destination="{x:Null}" Path="{x:Null}" StorageBucketName="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Hämta bild från Storage Bucket" sap:VirtualizedContainerService.HintSize="470,167" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_4" Result="[bild]" />
+    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="470,682" sap2010:WorkflowViewState.IdRef="RetryScope_1" LogRetriedExceptions="True" NumberOfRetries="3" RetriedExceptionsLogLevel="Warn" RetryInterval="00:00:03">
+      <ui:RetryScope.ActivityBody>
+        <ActivityAction>
+          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="450,475" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <isactr:ConnectorActivity Configuration="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" ConnectionId="cb2849bd-fbf9-4390-af62-f12b516d245c" DisplayName="Image Analysis" sap:VirtualizedContainerService.HintSize="416,415" sap2010:WorkflowViewState.IdRef="ConnectorActivity_2" UiPathActivityTypeId="267d190b-590f-304a-a865-e9d3722fa772">
+              <isactr:ConnectorActivity.FieldObjects>
+                <isactr:FieldObject Name="modelName" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:String">gpt-4o-2024-11-20</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="prompt" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:String" xml:space="preserve">Analysera bilden och avgör vilka av de definierade fel- och bristkategorierna som förekommer. 
+Beskriv vilka problem som syns och ange vilka visuella indikatorer som leder till slutsatsen. 
+Lista alla upptäckta fel med korta motiveringar. Om bedömningen är osäker, ange detta tydligt</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="image_type" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:String">File</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="_file" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="upr:IResource">[bild]</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="image_url" Type="FieldArgument" />
+                <isactr:FieldObject Name="topK" Type="FieldArgument" />
+                <isactr:FieldObject Name="topP" Type="FieldArgument" />
+                <isactr:FieldObject Name="top_p" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:Int64">1</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="instruction" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:String" xml:space="preserve">Du är en expert på fastighetsinspektioner. 
+När du analyserar en bild ska du identifiera om något av följande fel eller brister förekommer i bostaden och beskriva dina slutsatser utifrån synliga visuella indikatorer. 
+Bedöm endast det som syns på bilden och gör inga antaganden utöver detta.
+
+Felkategorier att leta efter:
+
+1. Fukt- och vattenskador.
+	- Missfärgningar, bubblor eller fläckar på vägg/golv/tak
+	- Svarta prickar (mögel)
+	- Vattenansamling eller fukt kring rör, golvbrunn, dusch, diskbänk
+
+2. Brister i ventilation.
+	- Igensatta ventiler
+	- Smutsiga eller blockerade frånluftsöppningar
+	- Felaktigt monterade fläktar
+	- Kondens eller imma som tyder på dålig ventilation
+
+3. Elfel eller osäkra elinstallationer.
+	- Gamla eller trasiga uttag/strömbrytare
+	- Exponerade eller lösa kablar
+	- Elinstallationer nära vatten på ett riskfyllt sätt
+	- Uttag utan jordning i fuktiga miljöer
+
+4. VVS-relaterade problem.
+	- Läckande rör eller kopplingar
+	- Dropp från kranar eller varmvattenberedare
+	- Rost, korrosion eller kalkavlagringar
+	- Missfärgning på rör eller golv p.g.a. läckage
+
+5. Värmesystemfel.
+	- Radiatorer som läcker eller är skadade
+	- Ojämnt uppvärmda element (visuellt tecken t.ex. rost, fukt)
+	- Termostater som är trasiga eller lösa
+
+6. Allmänt slitage / kosmetiska skador.
+	- Sprickor i väggar eller kakel
+	- Skadade golv
+	- Lös inredning eller trasiga lister
+	- Slitna fönsterkarmar eller dörrar
+
+Din output:
+Lista alla upptäckta fel med en kort motivering.
+Ange om bilden är osäker eller otillräcklig för bedömning.
+Identifiera även potentiella risker som kan uppstå baserat på det som syns.</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="max_tokens" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:Int64" />
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="temperature" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:Double">0</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="frequency_penalty" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:Int64">0</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="presence_penalty" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:Int64">0</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="n" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:Int64">1</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="_stop" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:String" />
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="out_text" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <OutArgument x:TypeArguments="x:String" />
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="Jit_v1_sub_chat_sub_completion" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <OutArgument x:TypeArguments="uiascb:v1_sub_chat_sub_completion_Create" />
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+              </isactr:ConnectorActivity.FieldObjects>
+            </isactr:ConnectorActivity>
+          </Sequence>
+        </ActivityAction>
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean" />
+      </ui:RetryScope.Condition>
+    </ui:RetryScope>
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" Settings="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="470,174" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[JsonObject]" JsonString="[ResultJSONString]" />
+    <Assign sap:VirtualizedContainerService.HintSize="470,115" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Type]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[JsonObject("Type").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[Not Type.Equals(&quot;None&quot;)]" sap:VirtualizedContainerService.HintSize="470,1037" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,817" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="a:InspektionsbilderTaby" Name="OutputRecord" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Findings]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[JsonObject("issues").ToString]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[IssuesFound]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </Assign.Value>
+          </Assign>
+          <uda:CreateEntityRecord x:TypeArguments="a:InspektionsbilderTaby" InputEntity="{x:Null}" IsInRecordView="{x:Null}" VisibleDynamicPropertiesInfo="{x:Null}" ContinueOnError="False" DisplayName="Create Entity Record" EntityId="2f396e47-39d7-f011-8d4c-000d3add7f02" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="434,258" sap2010:WorkflowViewState.IdRef="CreateEntityRecord`1_1" InputEntityInFieldView="[new Analysera_och_Kategorisera_Fel_i_Bild.InspektionsbilderTaby() With {  .Findings = Findings,  .Type = Type }]" OutputEntity="[OutputRecord]" TimeoutInMs="30000">
+            <uda:CreateEntityRecord.State>
+              <udam:RecordState>
+                <udam:RecordState.SelectedFields>
+                  <scg:List x:TypeArguments="udam:DynamicEntityField" Capacity="2">
+                    <udam:DynamicEntityField Id="6d543b1b-3ad7-f011-8d4c-000d3add7f02" Name="Findings">
+                      <udam:DynamicEntityField.ArgumentValue>
+                        <InArgument x:TypeArguments="x:String">[Findings]</InArgument>
+                      </udam:DynamicEntityField.ArgumentValue>
+                    </udam:DynamicEntityField>
+                    <udam:DynamicEntityField Id="6e543b1b-3ad7-f011-8d4c-000d3add7f02" Name="Type">
+                      <udam:DynamicEntityField.ArgumentValue>
+                        <InArgument x:TypeArguments="x:String">[Type]</InArgument>
+                      </udam:DynamicEntityField.ArgumentValue>
+                    </udam:DynamicEntityField>
+                  </scg:List>
+                </udam:RecordState.SelectedFields>
+              </udam:RecordState>
+            </uda:CreateEntityRecord.State>
+          </uda:CreateEntityRecord>
+          <uda:UploadFileToRecordField x:TypeArguments="a:InspektionsbilderTaby" FilePath="{x:Null}" FileResource="{x:Null}" InputEntity="{x:Null}" OutputEntity="{x:Null}" ContinueOnError="False" DisplayName="Upload File to Record Field" EntityId="2f396e47-39d7-f011-8d4c-000d3add7f02" ExpansionDepth="2" Field="The Entity does not contain any fields with File type." sap:VirtualizedContainerService.HintSize="434,269" sap2010:WorkflowViewState.IdRef="UploadFileToRecordField`1_1" RecordId="[OutputRecord.Id]" TimeoutInMs="30000" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,90" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
   </Sequence>
 </Activity>
